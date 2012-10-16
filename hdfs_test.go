@@ -46,6 +46,6 @@ func TestHDFS(t *testing.T) {
 	)
 	// NOTE: here we assumed that HDFS had been deployed on
 	// localhost:9000.  If this is not your case, please change.
-	Init("localhost", 9000, "")
+	Connect("localhost", 9000, "")
 	testCreateAndRead(kFilename, kContent, t)
 }

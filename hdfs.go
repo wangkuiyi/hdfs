@@ -14,14 +14,14 @@ var (
 )
 
 func init() {
-	Init("", 0, "") // Connect to local filesystem.
+	Connect("", 0, "") // Connect to local filesystem.
 }
 
 // Init connects to an HDFS service.  If host is an empty string, it
 // connects to the local filesystem.  Indeed, the package is
 // initialized to connect to the local filesystem.  If you want to
 // connect to a HDFS, recall Init (in main, for example).
-func Init(host string, port uint16, user string) error {
+func Connect(host string, port uint16, user string) error {
 	var err error
 	filesystem, err = zyxar.ConnectAsUser(host, port, user)
 	if err != nil {
