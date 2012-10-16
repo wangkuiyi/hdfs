@@ -13,6 +13,8 @@ var (
 	ErrInvalid = errors.New("Invalid argument")
 )
 
+type Filesystem zyxar.Fs
+
 func init() {
 	Connect("", 0, "") // Connect to local filesystem.
 }
