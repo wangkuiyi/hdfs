@@ -29,6 +29,8 @@ func testCreateAndRead(filename, content string, t *testing.T) {
 		t.Errorf("Expecting %s, got %s", content, s)
 	}
 	f.Close()
+
+	FS().Delete(filename)
 }
 
 func TestLocalFS(t *testing.T) {

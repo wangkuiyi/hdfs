@@ -30,6 +30,11 @@ func Connect(host string, port uint16, user string) error {
 	return err
 }
 
+func FS() *zyxar.Fs {
+	return filesystem
+}
+
+// This function exposes the functionality provided by github.com/zyxar/hdfs.
 type File struct {
 	file *zyxar.File
 	name string
