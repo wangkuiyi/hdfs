@@ -23,9 +23,9 @@ func init() {
 // connects to the local filesystem.  Indeed, the package is
 // initialized to connect to the local filesystem.  If you want to
 // connect to a HDFS, recall Init (in main, for example).
-func Connect(host string, port uint16, user string) error {
+func Connect(host string, port int, user string) error {
 	var err error
-	filesystem, err = zyxar.ConnectAsUser(host, port, user)
+	filesystem, err = zyxar.ConnectAsUser(host, uint16(port), user)
 	if err != nil {
 		log.Fatal("Cannot connect to local filesystem")
 	}
@@ -42,10 +42,12 @@ type File struct {
 	name string
 }
 
+// Open a file for reading.
 func Open(name string) (*File, error) {
 	return openFile(name, zyxar.O_RDONLY)
 }
 
+// Create a file for writing.
 func Create(name string) (file *File, err error) {
 	return openFile(name, zyxar.O_WRONLY|zyxar.O_CREATE)
 }
